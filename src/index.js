@@ -34,7 +34,6 @@ import ef_5 from './images/ef_5.png';
 import end_1 from './images/end_1.jpg';
 import end_2 from './images/end_2.jpg';
 import end_3 from './images/end_3.jpg';
-
 import './index.css';
 
 const HALF =1200
@@ -46,6 +45,7 @@ const LONG =3000;
 
 
 
+
 class Titles extends React.Component {
   constructor(){
     super();
@@ -53,6 +53,13 @@ class Titles extends React.Component {
       clsp: 'play',
       clsh: 'help'
     };
+  //path格納
+  this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3]; 
+  //イメージオブジェクト作成(画像数繰り返し)
+  for(this.i=0;this.i>31;this.i++){
+    this.imgObj = new Image();
+    this.imgObj.src = this.imgPath[this.i];
+  }
   }
 
   render(){
