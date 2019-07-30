@@ -51,18 +51,35 @@ class Titles extends React.Component {
     super();
     this.state={
       clsp: 'play',
-      clsh: 'help'
+      preload: 0
     };
-  //path格納
-  this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3]; 
-  //イメージオブジェクト作成(画像数繰り返し)
-  for(this.i=0;this.i>31;this.i++){
-    this.imgObj = new Image();
-    this.imgObj.src = this.imgPath[this.i];
   }
+  componentDidMount()
+  {
+    this.imgload()
   }
 
+  imgload()
+  {
+    //path格納
+    this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3]; 
+    //イメージオブジェクト作成(画像数繰り返し)
+    for(this.i=0;this.i<31;this.i++){
+      const imgObj = new Image();
+      imgObj.src = this.imgPath[this.i];
+      imgObj.onload = () => { // 読み込み完了時に＋１
+        this.setState({ preload: this.i }) 
+      }
+    }
+
+  }
   render(){
+    //読み込み未完了
+    if(this.state.preload!==31)
+    {
+      return(<div></div>)
+    }
+    else{
     return ( 
       <div className="wrap">
         <div className="header">
@@ -87,6 +104,7 @@ class Titles extends React.Component {
         <div className="help_area"></div>
       </div>
     );
+    }
   }
   play(){
     window.open('/game',null, 'top=0,left=100,width=785,height=532');
