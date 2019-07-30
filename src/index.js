@@ -51,7 +51,7 @@ class Titles extends React.Component {
     super();
     this.state={
       clsp: 'play',
-      preload: false
+      preload: 0
     };
   }
   componentDidMount()
@@ -66,16 +66,17 @@ class Titles extends React.Component {
     //イメージオブジェクト作成(画像数繰り返し)
     for(this.i=0;this.i<31;this.i++){
       const imgObj = new Image();
-      imgObj.src[this.i] = this.imgPath[this.i];
+      imgObj.src = this.imgPath[this.i];
+      imgObj.onload = () => { // 読み込み完了時に＋１
+        this.setState({ preload: this.i }) 
+        console.log(this.state.preload)
       }
-      this.imgObj.onload = () => { // 読み込み完了時にtrue
-        this.setState({ preload: true }) 
     }
 
   }
   render(){
     //読み込み未完了
-    if(!this.state.preload)
+    if(this.state.preload!==31)
     {
       return(<div></div>)
     }
