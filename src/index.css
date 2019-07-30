@@ -1,13 +1,440 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@charset "utf-8";
+h1,body,ul,li,p{
+    margin:0;
+  padding:0;
+}
+body{
+  background-color: #333;
+  overflow-x: hidden;
+}
+a{
+  display: inline-block;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.HKimg{
+  max-width: 800px;
+  max-height: 586px;
+  width: 100vw;
+  height: 100vh;
+  min-width: 750px;
+  min-height: 530px;
+  object-fit: contain;
+  overflow: hidden;
+  position: relative;
+}
+.def{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 800px;
+  max-height: 570px;
+  min-width: 750px;
+  min-height: 530px;
+  position: relative; 
+}
+.mask{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 800px;
+  max-height: 570px;
+  min-width: 750px;
+  min-height: 530px;
+  position: relative; 
+  opacity: .2;
+}
+
+.EF1{
+  animation:ef_1 0.25s 0.03s ease 1 forwards;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 800px;
+  max-height: 570px;
+  min-width: 750px;
+  min-height: 530px;
+
+  transform:scale(3,3);
+}
+@keyframes ef_1 {
+  0% {
+      transform:scale(3,3);
+  }
+  100% {
+      transform:scale(1,1);
+  }
+}
+
+.EF2{
+  position: absolute;
+  bottom: -130px;
+  left: 0;
+  max-width: 800px;
+  animation: ef_2 2.8s linear 1 forwards;
+}
+@keyframes ef_2 {
+  0% {
+    transform:scale(0.4,0.4);
+    bottom: -130px;
+  }
+  10%{
+    transform:scale(0.8,0.8);
+    bottom: -44px;
+  }
+  55%{
+    transform:scale(0.9,0.9);
+    bottom: -22px;
+  }
+  100% {
+    transform:scale(1,1);
+    bottom: 0;
+  }
+}
+
+
+.EF3{
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 800px;
+  z-index: 1;
+  opacity: 0;
+ animation: ef_3 2.5s linear 1 forwards;
+}
+@keyframes ef_3 {
+  0% {
+    opacity: 0;
+  }
+  13% {
+    opacity: .7;
+  }
+  92% {
+    opacity: .7;
+  }
+  97% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.EF4{
+  display: block;
+  position: fixed;
+  top: -100px;
+  left: -6000px;
+  width: 6000px;
+  object-fit: cover;
+  animation: ef_4 2.5s linear 1 forwards;
+}
+@keyframes ef_4 {
+  0% {
+    left:-6000px;
+  }
+  20%{
+    left:-2900px;
+  }
+  80%{
+    left:-2200px;
+  }
+  100% {
+    left:800px;
+  }
+}
+.EF5{
+  display: block;
+  max-width: 800px;
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  animation: ef_5 2.5s linear 1 forwards;
+}
+
+@keyframes ef_5 {
+  0% {
+    transform:scale(7,7);
+    opacity: .1;
+  }
+  10%{
+    transform:scale(4.1,4.1);
+    opacity: .3;
+  }
+  15%{
+    transform:scale(1.1,1.1);
+    opacity: 1;
+  }
+  80%{
+    transform:scale(1,1);
+    opacity: 1;
+  }
+  90% {
+    transform:scale(0.3,0.3);
+    opacity: .3;
+  }
+  91% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+.play{
+  padding :100px;
+  
+  position: absolute;
+  left: 397px;
+  top: 265px;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-radius: 500px;
+
+  overflow: hidden;
+  background-image:url("./images/play_btn.png");
+  background-size: cover;
+
+  transition: background 0.2s;
+}
+.play:hover{
+  background-image:url("./images/play_btn2.png");
+  transition: background 0.2s;
+}
+
+.button_box{
+  position: absolute;
+  top: 130px;
+  left: 250px;
+  width: 500px;
+  height: 100px;
+}
+
+.jan{
+  border-color: #1cb8ff;
+  color: #1cb8ff;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  height: 50px;
+  width: 300px;
+  margin-top: 40px;
+  border: solid 2px;
+}
+.jan:hover{
+  background-color: #ddf6ff;
+}
+.jan:focus{
+  background-color: #3377ff;
+  color: #fff;
+  outline: none;
+}
+.choose{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 800px;
+  max-height: 570px;
+  min-width: 750px;
+  min-height: 530px;
+  position: relative;
+  opacity: .4;
+}
+
+.header{
+  width: 100vw;
+  min-width: 900px;
+  height: 60px;
+  margin: 0 auto;
+  position: relative;
+  color: #FFF;
+  background-color: #000;
+}
+.header nav{
+  margin: -60px 70px 0 0;
+  font-family: 'Tahoma','Trebuchet','Verdana','Noto Sans JP','ヒラギノ角ゴ ProN W6','MS Gothic',sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.header h1{
+  height: 60px;
+}
+.header h1 a{
+  height: 60px;
+}
+.header h1 img{
+  height: 60px;
+}
+.header ul,.header li{
+  height: 60px;
+  display: inline-block;
+  list-style: none;
+}
+.header nav a{
+  margin: 10px 20px;
+  padding: 10px 0;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFF;
+  transition: color 0.3s;
+}
+.header nav a:hover{
+  color: #34D; 
+  transition: color 0.3s;
+}
+.SNS_box{
+  width: 140px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.SNS{
+  width: 40px;
+  height: 40px;
+  margin: 10px 10px;
+  color: rgba(0, 0, 0, 0);
+  background-size: contain;
+  transition: background-image 0.3s;
+}
+.SNS_t{
+  background-image: url("./images/icon_twitter.png");
+  transition: background-image 0.3s;
+}
+.SNS_f{
+  background-image: url("./images/icon_facebook.png");
+  transition: background-image 0.3s;
+}
+.SNS_t:hover{
+  background-image: url("./images/icon_twitter2.png");
+  transition: background-image 0.3s;
+}
+.SNS_f:hover{
+  background-image: url("./images/icon_facebook2.png");
+  transition: background-image 0.3s;
+}
+.title{
+  clear:both;
+  width: 100vw;
+  min-width: 900px;
+  height: 450px;
+  justify-content: center;
+  background-color: #BBB;
+  background-image: url("./images/title.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.janken_logo{
+  width: 100vw;
+  min-width: 900px;
+  height:120px;
+  justify-content: center;
+  background-color: #000;
+  background-image: url("./images/jankenlogo.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+.button_area{
+  width: 100vw;
+  min-width: 900px;
+  height: 60px;
+  padding: 20px;
+  background-color: rgb(13, 174, 238);
+}
+
+.button_area button{
+  display: block;
+  width: 398px;
+  height: 58px;
+  margin: 0 auto;
+  border: 2px solid #FFF;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  font-style: italic;
+  color: #FFF;
+  transition: background-color 0.2s;
+}
+button:focus{
+  outline: none;
+}
+.button_area button:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: background-color 0.2s;
+}
+.end_box{
+  width: 35%;
+  height: 30%;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+.redo{
+  width: 100px;
+  height: 100px;
+  margin-right: 50px;
+  padding-top: 70px;
+  border: none;
+  position: absolute;
+  top: 0;
+  color: rgba(0,0,0,0);
+  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("./images/icon_redo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(100%);
+  transition: height 0.3s, filter 0.3s, padding 0.3s, color 0.3s ;
+}
+.redo:hover{
+  filter: invert(0%);
+  height: 120px;
+  padding-top: 100px;
+  color: #FFF;
+  transition: height 0.3s, filter 0.3s, padding 0.3s, color 0.3s;
+}
+.close{
+  width: 100px;
+  height: 100px;
+  padding-top: 70px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgba(255,255,255,0);
+  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("./images/icon_close.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s ;
+}
+.close:hover{
+  height: 120px;
+  padding-top: 100px;
+  filter: invert(100%);
+  color: #000;
+  transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s;
+}
+.help_area{
+  width: 100%;
+  min-width: 900px;
+  height: 435px;
+  background-position: center;
+  background-color: #000;
+  background-image: url("./images/HKintro.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
