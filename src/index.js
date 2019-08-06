@@ -51,6 +51,7 @@ class Titles extends React.Component {
     super();
     this.state={
       clsp: 'play',
+      progress: 0,
       preload: 0
     };
   }
@@ -69,8 +70,8 @@ class Titles extends React.Component {
       imgObj.src = this.imgPath[this.i];
       imgObj.onload = () => { // 読み込み完了時に＋１
         this.setState({ preload:  this.state.preload+1})
+        this.setState({ progress:  this.state.preload*3+6})
       }
-      this.setState({ progress:  this.state.preload*3+6})
     }
   }
   render(){
