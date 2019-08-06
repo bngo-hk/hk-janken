@@ -1,6 +1,6 @@
 @charset "utf-8";
 h1,body,ul,li,p{
-    margin:0;
+  margin:0;
   padding:0;
 }
 body{
@@ -54,7 +54,8 @@ a{
   max-height: 570px;
   min-width: 750px;
   min-height: 530px;
-
+  transform: rotate(0.0001deg);
+  outline: 1px solid transparent;
   transform:scale(3,3);
 }
 @keyframes ef_1 {
@@ -72,6 +73,8 @@ a{
   left: 0;
   max-width: 800px;
   animation: ef_2 2.8s linear 1 forwards;
+  transform: rotate(0.0001deg);
+  outline: 1px solid transparent;
 }
 @keyframes ef_2 {
   0% {
@@ -100,7 +103,7 @@ a{
   max-width: 800px;
   z-index: 1;
   opacity: 0;
- animation: ef_3 2.5s linear 1 forwards;
+ animation: ef_3 2.5s 0.3s linear 1 forwards;
 }
 @keyframes ef_3 {
   0% {
@@ -127,7 +130,9 @@ a{
   left: -6000px;
   width: 6000px;
   object-fit: cover;
-  animation: ef_4 2.5s linear 1 forwards;
+  transform:translate3d(0,0,0);
+  outline: 1px solid transparent;
+  animation: ef_4 2.5s 0.3s linear 1 forwards;
 }
 @keyframes ef_4 {
   0% {
@@ -149,7 +154,8 @@ a{
   position: absolute;
   top: 0px;
   z-index: 2;
-  animation: ef_5 2.5s linear 1 forwards;
+  opacity: 0;
+  animation: ef_5 2.5s 0.3s linear 1 forwards;
 }
 
 @keyframes ef_5 {
@@ -343,11 +349,11 @@ a{
 
 }
 .button_area{
-  width: 100vw;
   min-width: 900px;
   height: 60px;
   padding: 20px;
   background-color: rgb(13, 174, 238);
+  background-position: center;
 }
 
 .button_area button{
@@ -437,4 +443,15 @@ button:focus{
   background-image: url("./images/HKintro.jpg");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.load_wrap{
+  width:100vw;
+  height: 100vh;
+}
+.load_circle{
+  width: 20vw;
+  height: 20vw;
+  background-color:#00F;
+  color: #FFF;
 }

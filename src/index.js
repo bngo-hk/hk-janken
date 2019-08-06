@@ -68,17 +68,22 @@ class Titles extends React.Component {
       const imgObj = new Image();
       imgObj.src = this.imgPath[this.i];
       imgObj.onload = () => { // 読み込み完了時に＋１
-        this.setState({ preload:  this.state.preload+1}) 
-        console.log(this.state.preload)
+        this.setState({ preload:  this.state.preload+1})
       }
+      this.setState({ progress:  this.state.preload*3+6})
     }
-
   }
   render(){
     //読み込み未完了
-    if(this.state.preload!==31)
+    if(this.state.preload<31)
     {
-      return(<div></div>)
+      return(
+      <div className="load_wrap">
+        <div className="load_circle">
+          {this.state.progress}%
+        </div>
+      </div>
+      )
     }
     else{
     return ( 
@@ -119,7 +124,7 @@ class Game extends React.Component{
       img: [title_1,ef_1,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,srt_6],
       cls: ["def","EF1","def","def","def","def","def","def","choose"],
       exc: [1,0,0,0,0,0,0,2,3],
-      ivl : [0,MID,SHORT,MID,MID,MID,MID,SHORT,LONG,"END"],
+      ivl : [0,LONG,SHORT,MID,MID,MID,MID,SHORT,LONG,"END"],
       auto:false
     };
   }
@@ -167,7 +172,7 @@ class Bgchange extends React.Component {
     this.images=[title_1,ef_1,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,srt_6];
     this.classes=["def","EF1","def","def","def","def","def","def","choose"];
     this.exContents=[1,0,0,0,0,0,0,2,3];
-    this.intervaltime=[0,0,MID,SHORT,MID,MID,MID,SHORT,LONG,"END"];
+    this.intervaltime=[0,0,LONG,SHORT,MID,MID,MID,SHORT,LONG,"END"];
     this.auto=false;
     this.cnt=0;
     this.exContents[0]=this.excIndex(this.exContents[0]);
@@ -283,19 +288,19 @@ class Bgchange extends React.Component {
           this.imgL=[srt_5,this.HK_hand,this.HK_hand,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,end_1,end_2,end_3,end_3];
           this.clsL=["def","def","def","def","def","def","def","def","def","def","def","def","def","mask"];
           this.excL=[0,0,4,4,4,0,0,0,0,0,0,0,0,5];
-          this.ivlL=[HALF,SHORT,HALF,HALF,HALF,VSHORT,MID,MID,SHORT,MID,LONG,LONG,SHORT,LONG,"END"];
+          this.ivlL=[HALF,SHORT,VSHORT,HALF,VSHORT,VSHORT,MID,MID,SHORT,MID,LONG,LONG,SHORT,LONG,"END"];
         break;
       case 1:
           this.imgL=[srt_5,this.HK_hand,this.HK_hand,lose_A_0,lose_A_1,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_A_E,end_1,end_2,end_3,end_3];
           this.clsL=["def","def","def","def","def","def","def","def","def","def","def","def","def","mask"];
           this.excL=[0,0,4,4,4,0,0,0,0,0,0,0,0,5];
-          this.ivlL=[HALF,SHORT,HALF,HALF,HALF,VSHORT,SHORT,MID,MID,MID,LONG,LONG,SHORT,LONG,"END"];
+          this.ivlL=[HALF,SHORT,VSHORT,HALF,VSHORT,VSHORT,SHORT,MID,MID,MID,LONG,LONG,SHORT,LONG,"END"];
         break;
       case 2:
           this.imgL=[srt_5,this.HK_hand,this.HK_hand,lose_A_0,lose_A_1,lose_3_2,lose_3_3,lose_3_4,lose_A_E,end_1,end_2,end_3,end_3];
           this.clsL=["def","def","def","def","def","def","def","def","def","def","def","def","mask"];
           this.excL=[0,0,4,4,4,0,0,0,0,0,0,0,5];
-          this.ivlL=[HALF,SHORT,HALF,HALF,HALF,VSHORT,SHORT,MID,MID,LONG,LONG,SHORT,LONG,"END"];
+          this.ivlL=[HALF,SHORT,VSHORT,HALF,VSHORT,VSHORT,SHORT,MID,MID,LONG,LONG,SHORT,LONG,"END"];
         break;
       default:
         ;
