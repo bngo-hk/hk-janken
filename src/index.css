@@ -12,6 +12,10 @@ a{
   text-decoration: none;
 }
 
+.hide{
+  display: none;
+  transition: display 0.3s;
+}
 .HKimg{
   max-width: 800px;
   max-height: 586px;

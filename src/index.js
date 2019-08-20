@@ -50,7 +50,7 @@ class Titles extends React.Component {
   constructor(){
     super();
     this.state={
-      clsp: 'play',
+      loadClass: 'loading_dummy',
       progress: 0,
       preload: 0
     };
@@ -66,50 +66,45 @@ class Titles extends React.Component {
     //path格納
     this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3]; 
     //イメージオブジェクト作成(画像数繰り返し)
-    if(this.loadcnt<=30)
+    for(this.loadcnt=0;this.loadcnt<31;this.loadcnt++)
     {
-      const imgObj = new Image();
+      let imgObj = new Image();
       imgObj.src = this.imgPath[this.loadcnt];
-      imgObj.onload = () => { // 読み込み完了時に＋１
+
+      imgObj.onload = () => {
+        
         this.nowprogress=this.state.preload*3+7;
         this.targetprogress=(this.state.preload+1)*3+7;
         this.setState({ preload:  this.state.preload+1});
-
-        this.loadinterval = setInterval(() => {
-
-          this.nowprogress += (this.targetprogress - this.nowprogress) * 0.4+0.2;
-          this.floorednowprogress = Math.floor(this.nowprogress)
-
+        this.loadFinishFlag=false;
+        while (!this.loadFinishFlag)
+        {
+          this.nowprogress += (this.targetprogress - this.nowprogress) * 0.2+0.1;
+          this.floorednowprogress = Math.floor(this.nowprogress);
           this.setState({ progress:  this.floorednowprogress});
-          console.log(this.targetprogress);
-          if(this.targetprogress<=this.floorednowprogress){
-
-            this.loadcnt++;
-            this.imgload();
-            clearInterval(this.loadinterval);
+          if(this.targetprogress<=this.floorednowprogress)
+          {
+            this.loadFinishFlag=true;
           }
-
-        }, 60);
+        }
       }
     }
-
-
-    else{
-      this.fincontrol = this.loadFinished();
-      setTimeout(this.fincontrol, 330);
-    }
-
+   
+    this.delaytime=0;
+    this.loadInterval = setInterval(()=>this.delaytimer(),1000)
   }
 
-    loadFinished()
+  delaytimer(){
+    console.log(this.delaytime)
+    this.delaytime++;
+    if(this.delaytime>=2)
     {
-        console.log("a");
+      this.setState({ loadClass:  "hide"});
+      clearInterval(this.loadInterval)
     }
+  }
 
   render(){
-    //読み込み未完了
-    if(this.state.preload<31)
-    {
       return(
         <div className="wrap">
           <div className="header">
@@ -122,7 +117,7 @@ class Titles extends React.Component {
               <ul className="SNS_box">
                 <li><a className="SNS SNS_t" href="https://twitter.com/ITkusodokata">twitter</a></li>
                 <li><a className="SNS SNS_f" href="#">facebook</a></li>
-                </ul>
+              </ul>
           </div>
           <div className="title">
           </div>
@@ -133,46 +128,20 @@ class Titles extends React.Component {
           </div>
           <div className="help_area"></div>
       
-          <div className="load_wrap">
-                <div className="load_circle">
-                    <span>{this.state.progress}</span>％
-                </div>
-                <div className="load_text">Loading...</div>
-                <div className="load_spin_box">
-                  <div className="load_spin"></div>
-                  <div className="load_mask"></div>
-                  <div className="load_mask2"></div>
-                </div>
+          <div className={"load_wrap"+" "+this.state.loadClass}>
+            <div className={"load_circle"+" "+this.state.loadClass}>
+                <span>{this.state.progress}</span>％
+            </div>
+            <div className={"load_text"+" "+this.state.loadClass}>Loading...</div>
+            <div className={"load_spin_box"+" "+this.state.loadClass}>
+              <div className={"load_spin"+" "+this.state.loadClass}></div>
+              <div className={"load_mask"+" "+this.state.loadClass}></div>
+              <div className={"load_mask2"+" "+this.state.loadClass}></div>
             </div>
           </div>
+        </div>
       )
-    }
-    else{
-    return ( 
-      <div className="wrap">
-        <div className="header">
-            <h1><a href="./"><img src={header_logo} alt=""/></a></h1>
-            <nav>
-                <ul>
-                    <li><a href="#">DUMMY</a></li><li><a href="#">HARIBOTE</a></li><li><a href="#">NOTHING</a></li><li><a href="#">KYOMU</a></li>
-                </ul>
-            </nav>
-            <ul className="SNS_box">
-              <li><a className="SNS SNS_t" href="https://twitter.com/ITkusodokata">twitter</a></li>
-              <li><a className="SNS SNS_f" href="#">facebook</a></li>
-              </ul>
-        </div>
-        <div className="title">
-        </div>
-        <div className="janken_logo">
-        </div>
-        <div className="button_area">
-            <button onClick={ () => this.play() }>ゲームスタート</button>
-        </div>
-        <div className="help_area"></div>
-      </div>
-    );
-    }
+    
   }
   play(){
     window.open('/game',null, 'top=0,left=100,width=785,height=532');
