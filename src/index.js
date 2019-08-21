@@ -50,7 +50,10 @@ class Titles extends React.Component {
   constructor(){
     super();
     this.state={
-      loadClass: 'loading_dummy',
+      loadClass: '',
+      circleClass: '',
+      spinClass: '',
+      hideClass:'',
       progress: 0,
       preload: 0
     };
@@ -66,13 +69,14 @@ class Titles extends React.Component {
     //path格納
     this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3]; 
     //イメージオブジェクト作成(画像数繰り返し)
+    this.loadfinishcnt=0;
     for(this.loadcnt=0;this.loadcnt<31;this.loadcnt++)
     {
       let imgObj = new Image();
       imgObj.src = this.imgPath[this.loadcnt];
-
+    
       imgObj.onload = () => {
-        
+        this.loadfinishcnt++;
         this.nowprogress=this.state.preload*3+7;
         this.targetprogress=(this.state.preload+1)*3+7;
         this.setState({ preload:  this.state.preload+1});
@@ -87,21 +91,29 @@ class Titles extends React.Component {
             this.loadFinishFlag=true;
           }
         }
+        if(this.loadfinishcnt===31)
+        {
+          this.delaytime=0;
+          this.loadInterval=setInterval(() => {
+            this.delaytime++;
+            if(this.delaytime>=2)
+            {
+              this.setState({ loadClass:  "load_finished",circleClass: "circle_finished",spinClass:"spin_finished"});
+              clearInterval(this.loadInterval)
+              this.loadInterval=setInterval(() => {
+                this.delaytime++;
+                if(this.delaytime>=2)
+                {
+                  this.setState({ hideClass:"hide"});
+                  clearInterval(this.loadInterval)
+                }},2000);
+            }},100);
+
+        }
       }
     }
    
-    this.delaytime=0;
-    this.loadInterval = setInterval(()=>this.delaytimer(),1000)
-  }
 
-  delaytimer(){
-    console.log(this.delaytime)
-    this.delaytime++;
-    if(this.delaytime>=2)
-    {
-      this.setState({ loadClass:  "hide"});
-      clearInterval(this.loadInterval)
-    }
   }
 
   render(){
@@ -128,15 +140,15 @@ class Titles extends React.Component {
           </div>
           <div className="help_area"></div>
       
-          <div className={"load_wrap"+" "+this.state.loadClass}>
-            <div className={"load_circle"+" "+this.state.loadClass}>
+          <div className={"load_wrap"+" "+this.state.loadClass+" "+this.state.hideClass}>
+            <div className={"load_circle"+" "+this.state.circleClass}>
                 <span>{this.state.progress}</span>％
             </div>
-            <div className={"load_text"+" "+this.state.loadClass}>Loading...</div>
-            <div className={"load_spin_box"+" "+this.state.loadClass}>
-              <div className={"load_spin"+" "+this.state.loadClass}></div>
-              <div className={"load_mask"+" "+this.state.loadClass}></div>
-              <div className={"load_mask2"+" "+this.state.loadClass}></div>
+            <div className={"load_text"+" "+this.state.spinClass+" "+this.state.hideClass}>Loading...</div>
+            <div className={"load_spin_box"+" "+this.state.spinClass+" "+this.state.hideClass}>
+              <div className={"load_spin"+" "+this.state.spinClass+" "+this.state.hideClass}></div>
+              <div className={"load_mask"+" "+this.state.spinClass+" "+this.state.hideClass}></div>
+              <div className={"load_mask2"+" "+this.state.spinClass+" "+this.state.hideClass}></div>
             </div>
           </div>
         </div>
@@ -348,10 +360,14 @@ class Bgchange extends React.Component {
   }
 
   render() {
-    return ( 
-      <div className="HKimg">
-        <img className={this.state.clsname} src={this.state.img} alt=""/>
-        {this.state.exContent}
+    return (
+      <div className="game_wrap"> 
+        <div className="HKimg">
+          <img className={this.state.clsname} src={this.state.img} alt=""/>
+          {this.state.exContent}
+        </div>
+        <div className="filter_left"></div>
+        <div className="filter_below"></div>
       </div>
     )
   }
