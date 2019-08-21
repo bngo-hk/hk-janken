@@ -100,7 +100,7 @@ a{
 }
 
 .EF1{
-  animation:ef_1 0.25s 0.03s ease 1 forwards;
+  animation:ef_1 0.25s 0.5s ease 1 forwards;
   display: block;
   width: 100vw;
   height: 100vh;
