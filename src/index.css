@@ -16,40 +16,10 @@ a{
   display: inline-block;
   text-decoration: none;
 }
-.hide{
-  display: none;
-}
-.load_finished{
-  animation: loadfinish_anime 0.3s linear 0.5s forwards;
-}
-@keyframes loadfinish_anime{
-  0%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
-.circle_finished{
-  animation: circlefinish_anime 0.3s linear 0.3s forwards;
-}
-@keyframes circlefinish_anime{
-  0%{
-    transform: translate(-50%,-50%) rotate(0deg) scale(1,1);
-  }
-  30%{
-    transform: translate(-50%,-50%) rotate(-120deg) scale(1.6,1.6);
-  }
-  100%{
-    transform: translate(-50%,-50%) rotate(-370deg) scale(0,0);
-  }
-}
-.spin_finished{
-  transition: opacity 0.7s 0s;
-  opacity: 0;
-}
 
-
+/*-----------------------------------------------------
+ ゲーム
+ -----------------------------------------------------*/
 .HKimg{
   max-width: 800px;
   max-height: 570px;
@@ -343,7 +313,69 @@ a{
   position: relative;
   opacity: .4;
 }
+.end_box{
+  width: 35%;
+  height: 30%;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+.redo{
+  width: 100px;
+  height: 100px;
+  margin-right: 50px;
+  padding-top: 70px;
+  border: none;
+  position: absolute;
+  top: 0;
+  color: rgba(0,0,0,0);
+  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("./images/icon_redo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(100%);
+  transition: height 0.3s, filter 0.3s, padding 0.3s, color 0.3s ;
+}
+.redo:hover{
+  filter: invert(0%);
+  height: 120px;
+  padding-top: 100px;
+  color: #FFF;
+  transition: height 0.3s, filter 0.3s, padding 0.3s, color 0.3s;
+}
+.close{
+  width: 100px;
+  height: 100px;
+  padding-top: 70px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgba(255,255,255,0);
+  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("./images/icon_close.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s ;
+}
+.close:hover{
+  height: 120px;
+  padding-top: 100px;
+  filter: invert(100%);
+  color: #000;
+  transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s;
+}
 
+
+
+/*-----------------------------------------------------
+トップページ 
+-------------------------------------------------------*/
 .header{
   width: 100vw;
   min-width: 900px;
@@ -374,11 +406,11 @@ a{
   list-style: none;
 }
 .header nav a{
-  margin: 10px 20px;
+  margin: 10px 10px;
   padding: 10px 0;
   display: inline-block;
   vertical-align: middle;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #FFF;
   transition: color 0.3s;
@@ -444,90 +476,61 @@ a{
 }
 .button_area{
   min-width: 870px;
-  height: 80px;
-  padding: 15px;
-  background-color: rgb(13, 174, 238);
+  height: 95px;
+  padding: 35px 0 10px 0;
+  background-color: rgb(9, 45, 207);
   background-position: center;
 }
 
 .button_area button{
   display: block;
-  width: 398px;
-  height: 78px;
+  position: relative;
+  width: 545px;
+  height: 70px;
   margin: 0 auto;
-  border: 3px solid #FFF;
-  background-color: rgba(0, 0, 0, 0);
-  font-family: 'Noto Sans JP','ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','MS Gothic',sans-serif;
-  font-size: 36px;
+  border: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+  border-bottom: 1px solid #FFF;
+  background-color: rgba(9, 45, 207, 0);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 70px;
   font-weight: 900;
-  font-style: italic;
+  line-height: 1em;
   color: #FFF;
   cursor: pointer;
-  transition: background-color 0.2s;
+  overflow: hidden;
+  z-index: 1;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.button_area button::after{
+  width: 100%;
+  height: 0;
+  content:"";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background : #FFF;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  transition: .3s;
+  z-index: -1;
+}
+.button_area button:hover::after{
+  height: 650%;
+  opacity: 1;
 }
 button:focus{
   outline: none;
 }
+.button_area button:active::after{
+    height: 650%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
 .button_area button:hover{
-  background-color: rgba(255, 255, 255, 0.4);
-  transition: background-color 0.2s;
-}
-.end_box{
-  width: 35%;
-  height: 30%;
-  position: absolute;
-  top: 40%;
-  left: 30%;
-}
-.redo{
-  width: 100px;
-  height: 100px;
-  margin-right: 50px;
-  padding-top: 70px;
-  border: none;
-  position: absolute;
-  top: 0;
-  color: rgba(0,0,0,0);
-  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
-  font-size: 20px;
-  background-color: rgba(0, 0, 0, 0);
-  background-image: url("./images/icon_redo.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  filter: invert(100%);
-  transition: height 0.3s, filter 0.3s, padding 0.3s, color 0.3s ;
-}
-.redo:hover{
-  filter: invert(0%);
-  height: 120px;
-  padding-top: 100px;
-  color: #FFF;
-  transition: height 0.3s, filter 0.3s, padding 0.3s, color 0.3s;
-}
-.close{
-  width: 100px;
-  height: 100px;
-  padding-top: 70px;
-  border: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: rgba(255,255,255,0);
-  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0);
-  background-image: url("./images/icon_close.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s ;
-}
-.close:hover{
-  height: 120px;
-  padding-top: 100px;
-  filter: invert(100%);
-  color: #000;
-  transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s;
+  border-color: rgba(9, 45, 255, 1);
+  color: rgba(9, 45, 255, 1);
+  transition: color 0.3s;
 }
 .help_area{
   width: 100%;
@@ -539,13 +542,30 @@ button:focus{
   background-size: contain;
   background-repeat: no-repeat;
 }
+.omake_area{
+  width: 100%;
+  min-width: 900px;
+  height: 600px;
+  background-position: center;
+  background-color: rgb(233, 37, 37);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.omake_area h2{
+  font-size: 50px;
+  color: #FFF;
+}
+
+/*-----------------------------------------------------
+ローディング
+-----------------------------------------------------*/
 
 .load_wrap{
   position: fixed;
-  top:0;
+  top:-10vh;
   left: 0;
   width:100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: #000;
   font-family: 'Share Tech Mono', monospace;
   z-index: 99;
@@ -564,7 +584,6 @@ button:focus{
   font-size: 4vh;
   font-weight: bold;
   text-align: center;
-  overflow: hidden;
   z-index: 8;
 }
 .load_circle span{
@@ -573,7 +592,7 @@ button:focus{
 .load_text{
   position: absolute;
   left: 50%;
-  top: 69vh;
+  top: 69%;
   transform : translate(-50%,-50%);
   font-size: 4vh;
   color: #FFF;
@@ -734,10 +753,10 @@ button:focus{
     border-left: 2vh rgba(255, 255, 255, 0) solid;
   }
   62.51%{
-    border-left: 2vh rgba(0, 0, 0, 1) solid;
+    border-left: 2.5vh rgba(0, 0, 0, 1) solid;
   }
   100%{
-  border-left: 2vh rgba(0, 0, 0, 1) solid;
+  border-left: 2.5vh rgba(0, 0, 0, 1) solid;
   }
 }
 @keyframes loadspinbox_anime{
@@ -747,4 +766,63 @@ button:focus{
   100%{
     transform: translate(-50%,-50%) rotate(180deg);
   }
+}
+
+.hide{
+  display: none;
+}
+.load_finished{
+  animation: loadfinish_anime 0.3s linear 0.8s forwards;
+}
+@keyframes loadfinish_anime{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.circle_finished{
+  animation: circlefinish_anime 0.3s linear 0.3s forwards;
+  box-shadow: inset 0 0 5vh rgba(255, 255, 255, 0.8),inset 0 0 5vh rgba(255, 255, 255, 0.5);
+}
+.circle_finished::after{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform : translate(-50%,-50%);
+  width: 26vh;
+  height: 26vh;
+  border-radius: 50%;
+  background-color:rgba(0,0,0,0);
+  color: #FFF;
+  z-index: 6;
+  animation: circlebeforefinish_anime 0.3s linear 0s forwards;
+}
+@keyframes circlefinish_anime{
+  0%{
+    transform: translate(-50%,-50%) rotate(0deg) scale(1,1);
+  }
+  30%{
+    transform: translate(-50%,-50%) rotate(-120deg) scale(1.6,1.6);
+  }
+  100%{
+    transform: translate(-50%,-50%) rotate(-370deg) scale(0,0);
+  }
+}
+@keyframes circlebeforefinish_anime{
+  0%{
+    transform: translate(-50%,-50%) rotate(0deg) scale(1,1);
+    border: 3vh rgba(255, 255, 255, .4) solid;
+  }
+  100%{
+    transform: translate(-50%,-50%) rotate(0deg) scale(2,2);
+    border: 7vh rgba(255, 255, 255, 0) solid;
+  }
+}
+.spin_finished{
+  transition: opacity 0.7s 0s;
+  opacity: 0;
 }

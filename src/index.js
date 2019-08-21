@@ -96,7 +96,7 @@ class Titles extends React.Component {
           this.delaytime=0;
           this.loadInterval=setInterval(() => {
             this.delaytime++;
-            if(this.delaytime>=2)
+            if(this.delaytime>=1)
             {
               this.setState({ loadClass:  "load_finished",circleClass: "circle_finished",spinClass:"spin_finished"});
               clearInterval(this.loadInterval)
@@ -136,9 +136,12 @@ class Titles extends React.Component {
           <div className="janken_logo">
           </div>
           <div className="button_area">
-              <button onClick={ () => this.play() }>ゲームスタート</button>
+              <button onClick={ () => this.play() }>GAME START</button>
           </div>
           <div className="help_area"></div>
+          <div className="omake_area">
+            <h2>おまけのコーナー</h2>
+          </div>
       
           <div className={"load_wrap"+" "+this.state.loadClass+" "+this.state.hideClass}>
             <div className={"load_circle"+" "+this.state.circleClass}>
