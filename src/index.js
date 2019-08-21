@@ -366,7 +366,25 @@ class Bgchange extends React.Component {
           <img className={this.state.clsname} src={this.state.img} alt=""/>
           {this.state.exContent}
         </div>
-        <div className="filter_left"></div>
+        <div className="filter_left">
+          <h2>しつもんコーナー</h2>
+          <p><span className="QA_Question">Ｑ</span> ロードが長過ぎる<br/>
+          <span className="QA_Answer">Ａ</span> ごめんなさい</p>
+          <p><span className="QA_Question">Ｑ</span>  絵が下手過ぎる<br/>
+          <span className="QA_Answer">Ａ</span> ごめんなさい</p>
+          <p><span className="QA_Question">Ｑ</span>  スマホでやりづらいんだけど<br/>
+          <span className="QA_Answer">Ａ</span> ごめんなさい</p>
+          <p><span className="QA_Question">Ｑ</span>  画面切替がガタガタ<br/>
+          <span className="QA_Answer">Ａ</span> ごめんなさい</p>
+          <p><span className="QA_Question">Ｑ</span>  音が出ない<br/>
+          <span className="QA_Answer">Ａ</span> ごめんなさい</p>
+          <p><span className="QA_Question">Ｑ</span>  勝てねえよ<br/>
+          <span className="QA_Answer">Ａ</span> 仕様です</p>
+          <p><span className="QA_Question">Ｑ</span> このキャラ嫌い<br/>
+          <span className="QA_Answer">Ａ</span> すこれ</p>
+          <p><span className="QA_Question">Ｑ</span>  ゲームがつまらない<br/>
+          <span className="QA_Answer">Ａ</span> いやーほならね、自分が作ってみろって話でしょ？そう私はそう言いたいですけどね。こっちは、こっちはみんなを楽しませるためにじゃんけんのゲームを…作っているわけでして、 やっぱり、前はちょっとシンプルだったのですが、 いや…ちょっとゲームやっぱ凝ったゲームがいいかなーと思って まあゲーム作り始めたわけですけども。そんな、「ゲームつまんない」とか言われたら、じゃあお前が作れって話でしょ、だと思いますけどね？ええ。結構ー……ゲーム作るのは大変だと思いますよ。ゲームの構図、から考えなあかんし。「つまんない」と言うんだったら自分が作ってみろ！っていう話でしょ？私はそう言いたい。うん。</p>
+        </div>
         <div className="filter_below"></div>
       </div>
     )
