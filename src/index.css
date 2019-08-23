@@ -4,7 +4,7 @@ h1,h2,body,ul,li,p,header,nav{
   padding:0;
 }
 body{
-  background-color: #333;
+  background-color: #000;
   overflow-x: hidden;
   font-family: 'Noto Sans JP','ヒラギノ角ゴ Pro W8','Hiragino Kaku Gothic Pro W6','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','MS Gothic',sans-serif;
 }
@@ -383,11 +383,22 @@ a{
   transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s;
 }
 
+.portrait_caution{
+  display: none;
+}
 @media screen and (orientation: portrait) {
-  .game_wrap {
-     background-color:#000;
-     opacity: 0;
+  .portrait_caution {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000;
   }
+}
+.portrait_caution p{
+  color: #FFF;
 }
 
 
@@ -554,6 +565,7 @@ button:focus{
   width: 100%;
   min-width: 900px;
   height: 435px;
+  margin-top: 20px;
   background-position: center;
   background-color: #000;
   background-image: url("./images/HKintro.jpg");
@@ -561,6 +573,7 @@ button:focus{
   background-repeat: no-repeat;
 }
 .omake_area{
+  position: relative;
   width: 100%;
   min-width: 860px;
   height: 600px;
@@ -573,7 +586,14 @@ button:focus{
   background-repeat: no-repeat;
 }
 .omake_area h2{
-  font-size: 50px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  padding: 10px 100px;
+  transform: translateX(-50%);
+  display: inline-block;
+  border-bottom: 1px #FFF solid;
+  font-size: 36px;
   font-style: italic;
   line-height: 1em;
   text-align: center;
@@ -582,6 +602,7 @@ button:focus{
 }
 
 .omake_area h3{
+  margin-top: 120px;
   border-bottom: 0px #FFF solid;
   font-size: 50px;
   font-style: italic;
@@ -591,12 +612,59 @@ button:focus{
   color: #FFF;
 }
 
-footer{
+.cautions_area{
+  padding: 50px 0;
   width: 100%;
   min-width: 900px;
-  height: 300px;
-  background-color:#FFF;
+  height: 500px;
+  background-color:#000;
+  text-align: center;
 }
+.cautions_area h2{
+  display: inline-block;
+  padding: 5px 220px;
+  margin: 0 auto;
+  border-top: 0px rgb(230, 26, 26) solid;
+  border-bottom: 1px #FFF solid;
+  font-size: 36px;
+  color: #FFF;
+  font-style: italic;
+}
+.cautions_area p{
+  margin: 30px 25px 30px;
+  font-size: 24px;
+  color: #FFF;
+}
+.cautions_area p span{
+  display: inline-block;
+  margin-bottom: 50px;
+  border-bottom: 8px rgb(230,24,24) solid;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+footer{
+  padding: 50px 0;
+  width: 100%;
+  min-width: 900px;
+  height: 500px;
+  background-color:#FFFFFA;
+  text-align: center;
+}
+footer h2{
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 0 auto;
+  border-bottom: 6px #666 solid;
+  font-size: 36px;
+  color: #666;
+}
+footer p{
+  margin: 30px 25px 30px;
+  font-size: 24px;
+  color: #666;
+}
+
 
 /*-----------------------------------------------------
 ローディング

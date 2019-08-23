@@ -136,20 +136,38 @@ class Titles extends React.Component {
           </div>
           <div className="janken_logo">
           </div>
-          <div className="button_area">
+          <section className="button_area">
               <button onClick={ () => this.play() }>GAME START</button>
+          </section>
+          <div className="cautions_area">
+            <section>
+                <h2>ゲームに関する注意</h2>
+                <p><span>※ 勝てません</span><br/>
+                  また、このゲームはあくまでパロディであり、<br/>
+                  現実のキャンペーンではありません。<br/>
+
+                  魔剤は用法用量を守って、楽しめる範囲で飲みましょう。
+                </p>
+                <p>ゲームは新しいウィンドウで開きます。<br/>
+                  スマートフォンでのプレイは推奨しておりませんが、<br/>
+                  その際は画面を横向きにしてください。<br/>
+                </p>
+              </section>
           </div>
-          <div className="help_area"></div>
-          <div className="omake_area">
+          <section className="help_area"></section>
+          <section className="omake_area">
             <h2>おまけ</h2>
             <h3>俺さ、そろそろおまけなんだよね</h3>
-          </div>
+          </section>
           <footer>
-            <p>当サイトは一個人によりジョークと内輪ネタで作られたサイトです。<br/>
-              サイト内の記載やイラスト等はあらゆる企業・団体にも関係しておりません。
-              
-              当サイトを利用することによるいかなる損害に対しても責任を負いかねます。
-            </p>
+          <section>
+                <h2>免責事項</h2>
+                <p>当サイトは個人によりジョークと内輪ネタで作られたサイトです。<br/>
+                  サイト内の記載やイラスト等はあらゆる企業・団体にも関係しておりません。<br/>
+                  当サイトを利用することにより発生したいかなる損害に対しても、<br/>
+                  作成者は責任を負いかねます。
+                </p>
+            </section>
           </footer>
       
           <div className={"load_wrap"+" "+this.state.loadClass+" "+this.state.hideClass}>
@@ -272,7 +290,6 @@ class Bgchange extends React.Component {
     {
       this.val="";
     }
-
     else if(num===1)
     {
       this.val=(<div className="play" onClick={() => this.play()}></div>);
@@ -409,7 +426,9 @@ class Bgchange extends React.Component {
           <span className="QA_Answer">Ａ</span> いやーほならね、自分が作ってみろって話でしょ？そう私はそう言いたいですけどね。こっちは、こっちはみんなを楽しませるためにじゃんけんのゲームを…作っているわけでして、 やっぱり、前はちょっとシンプルだったのですが、 いや…ちょっとゲームやっぱ凝ったゲームがいいかなーと思って まあゲーム作り始めたわけですけども。そんな、「ゲームつまんない」とか言われたら、じゃあお前が作れって話でしょ、だと思いますけどね？ええ。結構ー……ゲーム作るのは大変だと思いますよ。ゲームの構図、から考えなあかんし。「つまんない」と言うんだったら自分が作ってみろ！っていう話でしょ？私はそう言いたい。うん。</p>
         </div>
         <div className="filter_below"></div>
-        <div className="portrait_caution"></div>
+        <div className="portrait_caution">
+          <p>画面を横に向けてください</p>
+        </div>
       </div>
     )
   }
