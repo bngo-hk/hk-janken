@@ -6,7 +6,7 @@ h1,h2,body,ul,li,p,header,nav{
 body{
   background-color: #333;
   overflow-x: hidden;
-  font-family: 'Noto Sans JP','ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','MS Gothic',sans-serif;
+  font-family: 'Noto Sans JP','ヒラギノ角ゴ Pro W8','Hiragino Kaku Gothic Pro W6','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','MS Gothic',sans-serif;
 }
 .game_wrap{
   height: 100vh;
@@ -45,7 +45,7 @@ a{
 .filter_left h2{
   padding: 5px 0 5px 10px;
   font-size: 26px;
-  font-family: 'Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','MS Gothic',sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W6','HiraKakuProN-W6','ヒラギノ角ゴ ProN','Noto Sans JP','ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','MS Gothic',sans-serif;
   
 }
 .filter_left p{
@@ -108,9 +108,23 @@ a{
   position: relative; 
   opacity: .2;
 }
+.EF1_prepare{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 800px;
+  max-height: 570px;
+  min-width: 750px;
+  min-height: 530px;
+  border: 800px #000 solid;
+  box-sizing: border-box;
+  
+  background-color: #000;
+  box-shadow: 0px 0px 0px 800px #000 inset;
+}
 
 .EF1{
-  animation:ef_1 0.25s 0.1s ease 1 forwards;
+  animation:ef_1 0.3s 0.03s ease 1 forwards;
   display: block;
   width: 100vw;
   height: 100vh;
@@ -120,11 +134,11 @@ a{
   min-height: 530px;
   transform: rotate(0.0001deg);
   outline: 1px solid transparent;
-  transform:scale(3,3);
+  transform:scale(4,4);
 }
 @keyframes ef_1 {
   0% {
-      transform:scale(3,3);
+      transform:scale(4,4);
   }
   100% {
       transform:scale(1,1);
@@ -329,7 +343,7 @@ a{
   position: absolute;
   top: 0;
   color: rgba(0,0,0,0);
-  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-family: 'HiraKakuProN-W6','ヒラギノ角ゴ Pro W6','ヒラギノ角ゴ StdN W8','Hiragino Kaku Gothic StdN','Noto Sans JP','MS Gothic',sans-serif;
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0);
   background-image: url("./images/icon_redo.svg");
@@ -354,9 +368,8 @@ a{
   top: 0;
   right: 0;
   color: rgba(255,255,255,0);
-  font-family: 'ヒラギノ角ゴ Pro W9','Hiragino Kaku Gothic Pro W9','Hiragino Kaku Gothic Pro W7','ヒラギノ角ゴ Pro','ヒラギノ角ゴ ProN','Noto Sans JP','MS Gothic',sans-serif;
+  font-family: 'HiraKakuProN-W6','ヒラギノ角ゴ Pro W6','ヒラギノ角ゴ StdN W8','Hiragino Kaku Gothic StdN','Noto Sans JP','MS Gothic',sans-serif;
   font-size: 20px;
-  font-weight: bold;
   background-color: rgba(0, 0, 0, 0);
   background-image: url("./images/icon_close.png");
   background-size: contain;
@@ -371,6 +384,12 @@ a{
   transition: height 0.3s, padding 0.3s, filter 0.3s, color 0.3s;
 }
 
+@media screen and (orientation: portrait) {
+  .game_wrap {
+     background-color:#000;
+     opacity: 0;
+  }
+}
 
 
 /*-----------------------------------------------------
@@ -544,15 +563,24 @@ button:focus{
 }
 .omake_area{
   width: 100%;
-  min-width: 900px;
+  min-width: 860px;
   height: 600px;
+  padding: 20px;
+  box-sizing: border-box;
   background-position: center;
   background-color: rgb(233, 37, 37);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .omake_area h2{
+  margin: 0 6.5em ;
   font-size: 50px;
+  border-bottom: 0px #FFF solid;
+  font-family: 'HiraKakuProN-W6','Hiragino Kaku Gothic StdN''Noto Sans JP';
+  font-weight: normal;
+  line-height: 1em;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
   color: #FFF;
 }
 
@@ -784,7 +812,7 @@ button:focus{
 }
 .circle_finished{
   animation: circlefinish_anime 0.3s linear 0.3s forwards;
-  box-shadow: inset 0 0 5vh rgba(255, 255, 255, 0.8),inset 0 0 5vh rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 5vh rgba(255, 255, 255, 0.8);
 }
 .circle_finished::after{
   content: '';
@@ -799,7 +827,7 @@ button:focus{
   background-color:rgba(0,0,0,0);
   color: #FFF;
   z-index: 6;
-  animation: circlebeforefinish_anime 0.3s linear 0s forwards;
+  animation: circlebeforefinish_anime 0.2s linear 0s forwards;
 }
 @keyframes circlefinish_anime{
   0%{
@@ -823,6 +851,6 @@ button:focus{
   }
 }
 .spin_finished{
-  transition: opacity 0.7s 0s;
+  transition: opacity 0.5s 0s;
   opacity: 0;
 }

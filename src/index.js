@@ -34,6 +34,7 @@ import ef_5 from './images/ef_5.png';
 import end_1 from './images/end_1.jpg';
 import end_2 from './images/end_2.jpg';
 import end_3 from './images/end_3.jpg';
+//import caution from './images/caution.jpg';
 import './index.css';
 
 const HALF =1200
@@ -142,6 +143,9 @@ class Titles extends React.Component {
           <div className="omake_area">
             <h2>おまけのコーナー</h2>
           </div>
+          <footer>
+            <p></p>
+          </footer>
       
           <div className={"load_wrap"+" "+this.state.loadClass+" "+this.state.hideClass}>
             <div className={"load_circle"+" "+this.state.circleClass}>
@@ -167,10 +171,10 @@ class Game extends React.Component{
   constructor(){
     super();
     this.object={
-      img: [title_1,ef_1,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,srt_6],
-      cls: ["def","EF1","def","def","def","def","def","def","choose"],
-      exc: [1,0,0,0,0,0,0,2,3],
-      ivl : [0,LONG,SHORT,MID,MID,MID,MID,SHORT,LONG,"END"],
+      img: [title_1,ef_1,ef_1,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,srt_6],
+      cls: ["def","EF1_prepare","EF1","def","def","def","def","def","def","choose"],
+      exc: [1,6,0,0,0,0,0,0,2,3],
+      ivl : [0,0,800,LONG,SHORT,MID,MID,MID,SHORT,LONG,"END"],
       auto:false
     };
   }
@@ -297,6 +301,17 @@ class Bgchange extends React.Component {
         <button className="close" onClick={() => window.open('','_self').close()}>やめる</button>
       </div>);
     }
+    else if(num===6)
+    {
+      this.val=(
+        <div className="load_spin_box">
+          <div className="load_spin"></div>
+          <div className="load_mask"></div>
+          <div className="load_mask2"></div>
+        </div>
+      );
+    }
+
     return(this.val);
   }
 
@@ -389,6 +404,7 @@ class Bgchange extends React.Component {
           <span className="QA_Answer">Ａ</span> いやーほならね、自分が作ってみろって話でしょ？そう私はそう言いたいですけどね。こっちは、こっちはみんなを楽しませるためにじゃんけんのゲームを…作っているわけでして、 やっぱり、前はちょっとシンプルだったのですが、 いや…ちょっとゲームやっぱ凝ったゲームがいいかなーと思って まあゲーム作り始めたわけですけども。そんな、「ゲームつまんない」とか言われたら、じゃあお前が作れって話でしょ、だと思いますけどね？ええ。結構ー……ゲーム作るのは大変だと思いますよ。ゲームの構図、から考えなあかんし。「つまんない」と言うんだったら自分が作ってみろ！っていう話でしょ？私はそう言いたい。うん。</p>
         </div>
         <div className="filter_below"></div>
+        <div className="portrait_caution"></div>
       </div>
     )
   }
