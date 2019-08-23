@@ -141,10 +141,15 @@ class Titles extends React.Component {
           </div>
           <div className="help_area"></div>
           <div className="omake_area">
-            <h2>おまけのコーナー</h2>
+            <h2>おまけ</h2>
+            <h3>俺さ、そろそろおまけなんだよね</h3>
           </div>
           <footer>
-            <p></p>
+            <p>当サイトは一個人によりジョークと内輪ネタで作られたサイトです。<br/>
+              サイト内の記載やイラスト等はあらゆる企業・団体にも関係しておりません。
+              
+              当サイトを利用することによるいかなる損害に対しても責任を負いかねます。
+            </p>
           </footer>
       
           <div className={"load_wrap"+" "+this.state.loadClass+" "+this.state.hideClass}>

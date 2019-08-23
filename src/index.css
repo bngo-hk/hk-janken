@@ -290,23 +290,22 @@ a{
 
 .button_box{
   position: absolute;
-  top: 130px;
-  left: 250px;
-  width: 500px;
-  height: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .jan{
   border-color: #1cb8ff;
   color: #1cb8ff;
   background-color: #fff;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
-  border-radius: 50px;
-  height: 50px;
-  width: 300px;
-  margin-top: 40px;
-  border: solid 2px;
+  border-radius: 70px;
+  height: 70px;
+  width: 400px;
+  margin: 25px 0;
+  border: solid 3px;
 }
 .jan:hover{
   background-color: #ddf6ff;
@@ -497,7 +496,7 @@ a{
   min-width: 870px;
   height: 95px;
   padding: 35px 0 10px 0;
-  background-color: rgb(9, 45, 207);
+  background-color: rgb(14, 49, 206);
   background-position: center;
 }
 
@@ -547,8 +546,8 @@ button:focus{
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 .button_area button:hover{
-  border-color: rgba(9, 45, 255, 1);
-  color: rgba(9, 45, 255, 1);
+  border-color: rgba(9, 45, 230, 1);
+  color: rgba(9, 45, 230, 1);
   transition: color 0.3s;
 }
 .help_area{
@@ -565,23 +564,38 @@ button:focus{
   width: 100%;
   min-width: 860px;
   height: 600px;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
   box-sizing: border-box;
+  font-family: 'HiraKakuProN-W6','Hiragino Kaku Gothic StdN''Noto Sans JP';
   background-position: center;
-  background-color: rgb(233, 37, 37);
+  background-color: rgb(230, 26, 26);
   background-size: contain;
   background-repeat: no-repeat;
 }
 .omake_area h2{
-  margin: 0 6.5em ;
   font-size: 50px;
-  border-bottom: 0px #FFF solid;
-  font-family: 'HiraKakuProN-W6','Hiragino Kaku Gothic StdN''Noto Sans JP';
-  font-weight: normal;
+  font-style: italic;
   line-height: 1em;
   text-align: center;
   background-color: rgba(255, 255, 255, 0);
   color: #FFF;
+}
+
+.omake_area h3{
+  border-bottom: 0px #FFF solid;
+  font-size: 50px;
+  font-style: italic;
+  line-height: 1em;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  color: #FFF;
+}
+
+footer{
+  width: 100%;
+  min-width: 900px;
+  height: 300px;
+  background-color:#FFF;
 }
 
 /*-----------------------------------------------------
