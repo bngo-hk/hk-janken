@@ -84,13 +84,7 @@ class Titles extends React.Component {
         this.loadFinishFlag=false;
         while (!this.loadFinishFlag)
         { 
-          if(true){
-
-          }
-          if(true){
-            
-          }
-            this.nowprogress += (this.targetprogress - this.nowprogress) * 0.05+0.01;
+            this.nowprogress += (this.targetprogress - this.nowprogress) * 0.2+0.1;
             this.floorednowprogress = Math.floor(this.nowprogress);
             this.setState({ progress:  this.floorednowprogress});
             if(this.targetprogress<=this.floorednowprogress)
