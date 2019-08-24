@@ -34,11 +34,11 @@ import ef_5 from './images/ef_5.png';
 import end_1 from './images/end_1.jpg';
 import end_2 from './images/end_2.jpg';
 import end_3 from './images/end_3.jpg';
-//import caution from './images/caution.jpg';
+import caution from './images/caution_phone.png';
 import './index.css';
 
-const HALF =1200
-const VSHORT =1600
+const HALF =1200;
+const VSHORT =1600;
 const SHORT =2000;
 const MID  =2500;
 const LONG =3000;
@@ -68,18 +68,18 @@ class Titles extends React.Component {
   imgload()
   {
     //path格納
-    this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3]; 
+    this.imgPath =[title_1,header_logo,srt_1,srt_2,srt_3,srt_4,srt_5,srt_6,jan_P,jan_G,jan_C,lose_A_0,lose_A_1,lose_1_2,lose_1_3,lose_1_4,lose_1_5,lose_A_E,lose_2_2,lose_2_3,lose_2_4,lose_2_5,lose_3_2,lose_3_3,lose_3_4,ef_1,ef_2,ef_3,ef_4,ef_5,end_1,end_2,end_3,caution]; 
     //イメージオブジェクト作成(画像数繰り返し)
     this.loadfinishcnt=0;
-    for(this.loadcnt=0;this.loadcnt<31;this.loadcnt++)
+    for(this.loadcnt=0;this.loadcnt<32;this.loadcnt++)
     {
       let imgObj = new Image();
       imgObj.src = this.imgPath[this.loadcnt];
     
       imgObj.onload = () => {
         this.loadfinishcnt++;
-        this.nowprogress=this.state.preload*3+7;
-        this.targetprogress=(this.state.preload+1)*3+7;
+        this.nowprogress=this.state.preload*3+4;
+        this.targetprogress=(this.state.preload+1)*3+4;
         this.setState({ preload:  this.state.preload+1});
         this.loadFinishFlag=false;
         while (!this.loadFinishFlag)
@@ -92,7 +92,7 @@ class Titles extends React.Component {
             this.loadFinishFlag=true;
           }
         }
-        if(this.loadfinishcnt===31)
+        if(this.loadfinishcnt===32)
         {
           this.delaytime=0;
           this.loadInterval=setInterval(() => {
@@ -427,6 +427,7 @@ class Bgchange extends React.Component {
         </div>
         <div className="filter_below"></div>
         <div className="portrait_caution">
+          <img src={caution} alt=""/>
           <p>画面を横に向けてください</p>
         </div>
       </div>

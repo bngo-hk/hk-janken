@@ -40,7 +40,7 @@ a{
   font-size: 20px;
   color: #EEF;
   background-color: #222;
-  z-index: 999;
+  z-index: 90;
 }
 .filter_left h2{
   padding: 5px 0 5px 10px;
@@ -85,7 +85,7 @@ a{
   width: 100vw;
   height: 100vh;
   background-color: #222;
-  z-index: 998;
+  z-index: 89;
 }
 .def{
   display: block;
@@ -395,9 +395,54 @@ a{
     top: 0;
     left: 0;
     background-color: #000;
+    z-index: 99;
   }
 }
+.portrait_caution img{
+ position: absolute;
+ top: 45%;
+ left:50%;
+ width: 35vw;
+ height: 35vw;
+ transform: translate(-50%,-50%);
+ animation: portrait_caution_anime 3.5s infinite;
+}
+@keyframes portrait_caution_anime{
+  0%{
+    transform: translate(-50%,-50%);
+    opacity: 0;
+  }
+  9%{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+  22%{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+  45%{
+    transform: translate(-50%,-50%) rotate(90deg);
+    opacity: 1;
+  }
+  76%{
+    transform: translate(-50%,-50%) rotate(90deg);
+    opacity: 1;
+  }
+  87%{
+    transform: translate(-50%,-50%) rotate(90deg);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(-50%,-50%) rotate(90deg);
+    opacity: 0;
+  }
+}
+
 .portrait_caution p{
+  position: absolute;
+  top: 65%;
+  left:50%;
+  transform: translate(-50%,-50%);
   color: #FFF;
 }
 
@@ -653,9 +698,9 @@ footer{
 }
 footer h2{
   display: inline-block;
-  padding: 5px 20px;
+  padding: 5px 80px;
   margin: 0 auto;
-  border-bottom: 6px #666 solid;
+  border-bottom: 1px #666 solid;
   font-size: 36px;
   color: #666;
 }
