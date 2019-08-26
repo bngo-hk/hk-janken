@@ -128,7 +128,7 @@ class Titles extends React.Component {
                   </ul>
               </nav>
               <ul className="SNS_box">
-                <li><a className="SNS SNS_t" href="https://twitter.com/ITkusodokata">twitter</a></li>
+                <li><a className="SNS SNS_t" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">twitter</a></li>
                 <li><a className="SNS SNS_f" href="#">facebook</a></li>
               </ul>
           </div>
@@ -157,9 +157,21 @@ class Titles extends React.Component {
           <section className="help_area"></section>
           <section className="omake_area">
             <h2>おまけ</h2>
-            <h3>俺さ、そろそろおまけなんだよね</h3>
+            <h3>作るのが面倒くさくなった</h3>
           </section>
           <footer>
+          <section>
+            <h2>スタッフ</h2>
+            <p>
+              企画 : ぶんごう(<a className="link_nostyle" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">@ITkusodokata</a>)<br/>
+              絵 ： ぶんごう(<a className="link_nostyle" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">@ITkusodokata</a>)<br/>
+              制作 ： ぶんごう(<a className="link_nostyle" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">@ITkusodokata</a>)<br/>
+              雑用 ： ぶんごう(<a className="link_nostyle" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">@ITkusodokata</a>)<br/>
+              その他全部 ： ぶんごう(<a className="link_nostyle" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">@ITkusodokata</a>)<br/>
+              人類悪 ： ぶんごう(<a className="link_nostyle" href="https://twitter.com/ITkusodokata" target="_blank" rel="noopener noreferrer">@ITkusodokata</a>)<br/>
+
+            </p>
+          </section>
           <section>
                 <h2>免責事項</h2>
                 <p>当サイトは個人によりジョークと内輪ネタで作られたサイトです。<br/>
@@ -167,6 +179,9 @@ class Titles extends React.Component {
                   当サイトを利用することにより発生したいかなる損害に対しても、<br/>
                   作成者は責任を負いかねます。
                 </p>
+            </section>
+            <section>
+                <p className="rights">© オールライツなんとか</p>
             </section>
           </footer>
       

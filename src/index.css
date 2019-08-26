@@ -677,7 +677,7 @@ button:focus{
 }
 .cautions_area p{
   margin: 30px 25px 30px;
-  font-size: 24px;
+  font-size: 26px;
   color: #FFF;
 }
 .cautions_area p span{
@@ -689,25 +689,31 @@ button:focus{
 }
 
 footer{
-  padding: 50px 0;
+  padding: 30px 0;
   width: 100%;
   min-width: 900px;
-  height: 500px;
+  height: 750px;
   background-color:#FFFFFA;
   text-align: center;
 }
 footer h2{
   display: inline-block;
-  padding: 5px 80px;
+  padding: 30px 80px 5px;
   margin: 0 auto;
   border-bottom: 1px #666 solid;
   font-size: 36px;
   color: #666;
 }
 footer p{
-  margin: 30px 25px 30px;
-  font-size: 24px;
+  margin: 30px 25px 40px;
+  font-size: 22px;
   color: #666;
+}
+
+
+.rights{
+  margin: 120px 25px 10px;
+  font-size: 18px;
 }
 
 
